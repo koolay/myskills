@@ -1,7 +1,9 @@
 ---
-name: skill-name
+name: ko-{分类}-{功能}
 description: "One-line description of when and why to use this skill."
 ---
+
+<!-- 命名规则见 NAMING.md，name 必须与目录名一致 -->
 
 # Skill Name
 

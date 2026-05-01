@@ -1,44 +1,50 @@
 # My Skills
 
-Personal collection of Qoder CLI dev skills, distilled from daily practice.
+Personal collection of dev skills for [Codex (OpenAI)](https://github.com/openai/codex) and [Claude Code (Anthropic)](https://github.com/anthropics/claude-code), distilled from daily practice.
 
-## Usage
-
-Install all skills from this repo:
-
-```bash
-qoder skill install --from /path/to/myskills
-```
-
-Or install a specific skill:
-
-```bash
-qoder skill install --from /path/to/myskills/rca
-```
+All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 
 ## Skills
 
-| Skill | Description |
-|-------|-------------|
-| [rca](./rca/) | Structured root cause analysis using 5-Why methodology |
+| Skill | 分类 | Description |
+|-------|------|-------------|
+| [ko-dx-rca](./ko-dx-rca/) | Developer Experience | 根因分析 (5-Why methodology) |
+
+## Usage
+
+### Claude Code
+
+```bash
+claude mcp add-skill /path/to/myskills/ko-dx-rca
+```
+
+### Codex
+
+Copy the skill's `SKILL.md` content into your Codex agent instructions or reference it via project config.
 
 ## Creating a New Skill
 
 ```bash
-mkdir <skill-name>
-cp SKILL_TEMPLATE.md <skill-name>/SKILL.md
-# Edit SKILL.md with your skill definition
+# 1. 创建目录（必须遵循 ko-{分类}-{功能} 格式）
+mkdir ko-dx-newskill
+
+# 2. 从模板创建 SKILL.md
+cp SKILL_TEMPLATE.md ko-dx-newskill/SKILL.md
+
+# 3. 编辑 SKILL.md，确保 name 与目录名一致
 ```
 
-Each skill is a directory containing a `SKILL.md` file with YAML frontmatter (`name`, `description`) and the skill instructions in Markdown.
+命名规则详见 [NAMING.md](./NAMING.md)。
 
 ## Structure
 
 ```
 myskills/
 ├── README.md
-├── SKILL_TEMPLATE.md    # Template for new skills
-├── <skill-name>/
-│   └── SKILL.md         # Skill definition
-└── ...
+├── NAMING.md              # 命名规范（必读）
+├── SKILL_TEMPLATE.md      # Skill 模板
+├── ko-dx-rca/
+│   └── SKILL.md
+└── ko-{分类}-{功能}/
+    └── SKILL.md
 ```

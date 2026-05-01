@@ -1,5 +1,5 @@
 ---
-name: rca
+name: ko-dx-rca
 description: "Structured root cause analysis for bugs using 5-Why methodology, evidence chain verification, and fix classification. Use this skill whenever the user reports a bug, asks 'why does X happen', wants to understand the real cause of a defect, asks for 5-why analysis, says 'root cause analysis', or needs to determine whether a fix addresses one instance or a class of problems. Also use when the user has already fixed a bug and wants to verify the fix is targeting the true root cause."
 ---
 

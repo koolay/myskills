@@ -40,9 +40,11 @@ cp SKILL_TEMPLATE.md ko-dx-newskill/SKILL.md
 
 ```
 myskills/
-├── README.md
+├── AGENTS.md              # Agent instructions
+├── README
 ├── NAMING.md              # 命名规范（必读）
 ├── SKILL_TEMPLATE.md      # Skill 模板
+├── index.md               # Directory index
 ├── ko-dx-rca/
 │   └── SKILL.md
 └── ko-{分类}-{功能}/

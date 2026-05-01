@@ -1,6 +1,6 @@
 ---
 name: ko-dx-rca
-description: "Structured root cause analysis for bugs using 5-Why methodology, evidence chain verification, and fix classification. Use this skill whenever the user reports a bug, asks 'why does X happen', wants to understand the real cause of a defect, asks for 5-why analysis, says 'root cause analysis', or needs to determine whether a fix addresses one instance or a class of problems. Also use when the user has already fixed a bug and wants to verify the fix is targeting the true root cause."
+description: "Use when the user reports a bug, asks why behavior happens, requests root cause or 5-why analysis, or wants to verify whether a bug fix addresses the true cause."
 ---
 
 # Root Cause Analysis (RCA)
@@ -88,7 +88,7 @@ Before presenting the report, verify the analysis is sound:
 
 ## Output Format
 
-Present the report in this structure:
+Present the report in this structure. Keep every causal claim tied to source evidence.
 
 ```markdown
 # RCA Report: [Brief title]
@@ -107,7 +107,7 @@ Present the report in this structure:
 1. **Why [symptom]?** Because [answer]. `file:line`
 2. **Why [answer from 1]?** Because [answer]. `file:line`
 3. ...
-N. **Root cause:** [The actual root cause — a missing concept/wrong abstraction/violated invariant]
+N. **Root cause:** [missing concept / wrong abstraction / violated invariant]
 
 #### Fix Classification: [Point / Class / Hybrid]
 - **What to change:** [concrete suggestion]
@@ -115,17 +115,13 @@ N. **Root cause:** [The actual root cause — a missing concept/wrong abstractio
 - **Why this works:** [explanation]
 - **What this does NOT fix:** [remaining gaps]
 
-### Root Cause 2: [Title] (if applicable)
-...
-
 ## Evidence Chain
 | Root Cause | Chain | Verified? | Gaps |
 |-----------|-------|-----------|------|
 | RC1 | cause -> effect -> symptom | Yes/Partial | ... |
 
 ## Remaining Risks
-- [Risk 1: description and where to look]
-- [Risk 2: ...]
+- [Risk and where to look]
 
 ## Recommendations
 1. [Immediate: point fixes to ship now]

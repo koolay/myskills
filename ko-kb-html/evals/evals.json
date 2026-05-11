@@ -1,0 +1,29 @@
+{
+  "skill_name": "ko-kb-html",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "把 docs/architecture 下面的 Markdown 架构文档生成离线 HTML companion。里面有 Mermaid flowchart，要求图形直接可见，不要只显示代码块，并保留 Mermaid source。",
+      "expected_output": "Creates or updates reproducible HTML companions, uses official Mermaid rendering when available, embeds inline SVG, preserves source in details, and avoids runtime CDN/framework dependencies.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "当前生成的架构 HTML 里 Mermaid 图能显示，但是原页面放大到 175% 后文字和连线模糊；全屏里是清楚的。请修复，并自己用浏览器截图验收。",
+      "expected_output": "Diagnoses compressed-SVG transform scaling, fixes the generator so normal-page zoom resizes inline SVG from natural width while pan uses translate, regenerates pages, and verifies sharpness in browser screenshots.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Mermaid 全屏后背景文字还透出来，而且黑色背景导致线和 edge label 看不清。参考 vitepress-mermaid-renderer 的效果，但不要引入 Vue/VitePress 依赖。",
+      "expected_output": "Copies behavior pattern rather than framework runtime, keeps a light diagram board, hides or masks page content behind the fullscreen layer, keeps controls usable, and verifies fullscreen zoom/pan/close.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "这个 docs-to-html 生成器每次运行都会重复插入 CSS 和 script。修成幂等，并检查移动端没有横向滚动。",
+      "expected_output": "Moves fixes into the generator, uses stable sentinel stripping/reinjection, reruns generation twice to prove idempotence, and verifies desktop/mobile horizontal overflow in a browser.",
+      "files": []
+    }
+  ]
+}

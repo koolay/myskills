@@ -39,6 +39,12 @@ Default paths: `[source].md` -> `[source].html`; chat-only -> `docs/html/YYYY-MM
 - Visual polish must not make weak evidence look certain.
 - Handoff-ready: the next reader can review or start work without rereading the chat.
 
+## Non-Negotiables
+
+- **Architecture:** do not use a generic article layout; show boundaries, ownership, flows, contracts, storage, and failure modes.
+- **Review:** do not bury findings in prose; lead with severity, file anchors, risk hotspots, and next actions.
+- **Private data:** if the requested path is public, halt and redirect to a private destination or redaction first.
+
 ## Common Mistakes
 
 - **Generic article wrapper:** Rework from the reference target.

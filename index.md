@@ -6,9 +6,15 @@
 - **[NAMING.md](./NAMING.md)** - Skill naming rules and categories
 - **[README](./README)** - Personal skills collection overview
 - **[SKILL_TEMPLATE.md](./SKILL_TEMPLATE.md)** - New skill scaffold template
+- **[evals/evals.json](./evals/evals.json)** - Pressure scenarios for skill validation
 
 ## Subdirectories
 
 ### ko-dx-rca/
 
 - **[SKILL.md](./ko-dx-rca/SKILL.md)** - Structured root cause analysis workflow
+
+### ko-kb-html/
+
+- **[SKILL.md](./ko-kb-html/SKILL.md)** - Self-contained HTML companion workflow for substantial agent-written documents
+- **[references/html-quality-targets.md](./ko-kb-html/references/html-quality-targets.md)** - Document-type HTML quality targets

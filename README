@@ -9,6 +9,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 | Skill | 分类 | Description |
 |-------|------|-------------|
 | [ko-dx-rca](./ko-dx-rca/) | Developer Experience | 根因分析 (5-Why methodology) |
+| [ko-kb-html](./ko-kb-html/) | Knowledge Base | 为 plan、architecture、PRD、prototype、review、research、report 等长文档生成自包含 HTML companion |
 
 ## Usage
 
@@ -16,11 +17,18 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 
 ```bash
 claude mcp add-skill /path/to/myskills/ko-dx-rca
+claude mcp add-skill /path/to/myskills/ko-kb-html
 ```
 
 ### Codex
 
 Copy the skill's `SKILL.md` content into your Codex agent instructions or reference it via project config.
+
+For always-on HTML companions, add this global agent instruction after installing or copying `ko-kb-html`:
+
+```markdown
+When you produce a substantial Markdown document such as a plan, architecture doc, PRD, prototype spec, review, research note, report, postmortem, or implementation brief, use `ko-kb-html` to create a self-contained `.html` companion when the document has enough structure to benefit from layout, navigation, diagrams, comparison, or interaction, unless the user explicitly asks for Markdown only.
+```
 
 ## Creating a New Skill
 
@@ -44,9 +52,15 @@ myskills/
 ├── README
 ├── NAMING.md              # 命名规范（必读）
 ├── SKILL_TEMPLATE.md      # Skill 模板
+├── evals/
+│   └── evals.json         # Skill pressure scenarios
 ├── index.md               # Directory index
 ├── ko-dx-rca/
 │   └── SKILL.md
+├── ko-kb-html/
+│   ├── SKILL.md
+│   └── references/
+│       └── html-quality-targets.md
 └── ko-{分类}-{功能}/
     └── SKILL.md
 ```

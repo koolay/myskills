@@ -1,0 +1,23 @@
+{
+  "skill_name": "ko-kb-site-docs",
+  "evals": [
+    {
+      "id": "vitepress-mermaid-rendering",
+      "prompt": "Create a VitePress docs site for a Java profiler project. Include an architecture page with C4 context and container diagrams written in Mermaid, then make sure the published page displays diagrams visually instead of showing Mermaid code blocks.",
+      "expected_output": "Agent configures an explicit Mermaid rendering path for VitePress, adds the required renderer dependency or theme setup, keeps Markdown diagrams as fenced Mermaid source, styles rendered diagrams, runs build/preview checks, and reports diagram rendering status.",
+      "files": []
+    },
+    {
+      "id": "existing-docs-route-preservation",
+      "prompt": "This repo already has docs under docs/guide, docs/operations, and docs/architecture. Reorganize the docs site navigation and add missing section index pages, but do not break existing public URLs.",
+      "expected_output": "Agent inventories current routes, preserves existing public paths or calls out redirect needs, groups navigation by user task, adds section index pages, and verifies nav/sidebar plus critical routes.",
+      "files": []
+    },
+    {
+      "id": "generated-api-reference",
+      "prompt": "Add API reference docs generated from this project's OpenAPI schema, but make it useful for new developers who need a quickstart and common workflows too.",
+      "expected_output": "Agent places generated reference under a stable section, documents the regeneration command, adds hand-written quickstart/workflow guides that link into the reference, and verifies generated pages are reachable from navigation.",
+      "files": []
+    }
+  ]
+}

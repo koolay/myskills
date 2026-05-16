@@ -7,8 +7,6 @@ description: "Use when creating, restructuring, or repairing a project documenta
 
 **Goal:** Generate or refactor a project documentation site that is navigable, maintainable, and publish-ready. Framework choice is secondary; information architecture is the product.
 
-**Use when:** The user asks for project docs, docs site, documentation portal, knowledge base, VitePress, Docusaurus, Nextra, Mintlify, Starlight, static docs generation, docs navigation, sidebars, homepage, guides, API/reference docs, diagrams, broken links, or docs build/preview fixes.
-
 **Do not use when:** The task is a one-off Markdown note, standalone HTML companion, or prose edit without site structure. For self-contained offline HTML companions, use `ko-kb-html`.
 
 ## Inputs
@@ -20,22 +18,16 @@ description: "Use when creating, restructuring, or repairing a project documenta
 
 ## Execution
 
-### Phase 1: Site Contract
-
 1. Identify audience and the job the docs must do.
 2. Define the minimum useful page set before choosing a framework.
-3. Separate content types: start-here pages, task guides, reference, operations, architecture/decisions, contributing.
+3. Separate content types: start-here, task guides, reference, operations, architecture/decisions, contributing.
 4. HALT and ask one concise question if audience, publishing target, or source material is missing and guessing would create the wrong site.
 
-### Phase 2: Navigation First
+### Navigation First
 
-1. Create a page inventory with stable lowercase slugs.
-2. Group pages by user task, not repo folder accident.
-3. Preserve public URLs unless the user approves redirects or breaking route changes.
-4. Make important pages reachable from homepage, nav, sidebar, or section index pages.
-5. Put generated reference under a predictable section: `reference/`, `api/`, or `cli/`.
+Create a page inventory with stable lowercase slugs. Group pages by user task, not repo folder accident. Preserve public URLs unless the user approves redirects or breaking route changes. Make important pages reachable from homepage, nav, sidebar, or section index pages. Put generated reference under `reference/`, `api/`, or `cli/`.
 
-### Phase 3: Implementation Path
+### Choose Implementation Path
 
 | Situation | Preferred path |
 | --- | --- |
@@ -47,7 +39,7 @@ description: "Use when creating, restructuring, or repairing a project documenta
 
 Do not add a docs framework just because this skill names one. Prefer the project's existing stack unless it blocks the docs goal.
 
-### Phase 4: Content and Config
+### Content and Config
 
 For each page:
 
@@ -55,10 +47,13 @@ For each page:
 2. List prerequisites before commands.
 3. Keep commands copy-pasteable and state repo-root assumptions.
 4. Link guides to the next likely page.
-5. Use diagrams only when they reduce explanation cost; keep diagram source versioned.
-6. Mark generated content and document the regeneration command.
+5. Use diagrams only when they reduce explanation cost; keep diagram source versioned and rendered in the site preview.
+6. Do not leave Mermaid as a visible fenced code block unless the user explicitly asks for source-only docs.
+7. Mark generated content and document the regeneration command.
 
-Configure the framework equivalents for title, description, language, base path, clean URLs, last-updated metadata, homepage, nav, sidebar, search, Markdown extensions, diagrams, anchors, and broken-link behavior.
+Configure the framework equivalents for title, description, language, base path, clean URLs, last-updated metadata, homepage, nav, sidebar, search, Markdown extensions, diagram rendering, anchors, and broken-link behavior.
+
+For VitePress Mermaid rendering, use `references/vitepress-mermaid.md`. The acceptance criterion is rendered SVG/diagram output in build/preview, not a visible `mermaid` code block.
 
 ## Quick Reference
 
@@ -68,25 +63,25 @@ Configure the framework equivalents for title, description, language, base path,
 | Existing messy docs | Preserve URLs, regroup nav/sidebar, add missing index pages |
 | VitePress site | Update `.vitepress/config.*`, homepage frontmatter, nav/sidebar, build scripts |
 | Generated reference | Put under stable section, document generator, link from guides |
+| Mermaid diagrams | Configure renderer, then verify preview shows rendered diagrams |
 | Broken links | Check case, anchors, base path, clean URL behavior, generated routes |
-| Publish readiness | Run build, preview locally, verify homepage and critical routes |
+| Publish readiness | Run build, preview locally, verify homepage, diagrams, and critical routes |
 
 ## Skill Verification Scenarios
 
 | Scenario | Baseline failure to catch | Expected behavior |
 | --- | --- | --- |
-| "Generate docs for this repo" | Pages dumped into `docs/` with no audience, nav, or route plan | Define audience, inventory, nav, and verification first |
+| "Generate docs for this repo" | Pages dumped into `docs/` with no audience/nav plan | Define audience, inventory, nav, and verification first |
 | "Make a VitePress docs site" | VitePress config treated as the whole task | Design docs IA, then implement VitePress conventions |
 | "Add API docs" | Disconnected reference pages | Link generated reference from guides and document regeneration |
+| "Add architecture diagrams" | Mermaid appears as code blocks | Configure rendering and verify diagrams visually |
 | "Fix docs build" | Only the failing link is patched | Check route casing, base path, generated pages, nav/sidebar, and preview |
 
 ## Output Format
 
-Return:
-
 - Changed file paths and one-line purpose for each.
 - Site structure summary: audience, sections, important routes.
-- Build/preview commands run, with pass/fail result.
+- Build/preview commands run, with pass/fail result and diagram rendering status when diagrams exist.
 - Known gaps: missing source material, unpublished routes, unverified external links, or route compatibility risks.
 
 ## Principles

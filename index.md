@@ -18,3 +18,7 @@
 
 - **[SKILL.md](./ko-kb-html/SKILL.md)** - Self-contained HTML companion workflow for substantial agent-written documents
 - **[references/html-quality-targets.md](./ko-kb-html/references/html-quality-targets.md)** - Document-type HTML quality targets
+
+### ko-kb-site-docs/
+
+- **[SKILL.md](./ko-kb-site-docs/SKILL.md)** - Project documentation site generation and refactoring workflow

@@ -10,6 +10,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 |-------|------|-------------|
 | [ko-dx-rca](./ko-dx-rca/) | Developer Experience | 根因分析 (5-Why methodology) |
 | [ko-kb-html](./ko-kb-html/) | Knowledge Base | 为 plan、architecture、PRD、prototype、review、research、report 等长文档生成自包含 HTML companion |
+| [ko-kb-site-docs](./ko-kb-site-docs/) | Knowledge Base | 生成或重构项目文档站点，包括信息架构、导航、页面层级、参考文档和发布验证 |
 
 ## Usage
 
@@ -18,6 +19,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 ```bash
 claude mcp add-skill /path/to/myskills/ko-dx-rca
 claude mcp add-skill /path/to/myskills/ko-kb-html
+claude mcp add-skill /path/to/myskills/ko-kb-site-docs
 ```
 
 ### Codex
@@ -61,6 +63,8 @@ myskills/
 │   ├── SKILL.md
 │   └── references/
 │       └── html-quality-targets.md
+├── ko-kb-site-docs/
+│   └── SKILL.md
 └── ko-{分类}-{功能}/
     └── SKILL.md
 ```

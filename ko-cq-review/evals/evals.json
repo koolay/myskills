@@ -1,0 +1,35 @@
+{
+  "skill_name": "ko-cq-review",
+  "evals": [
+    {
+      "id": "diff-only-review",
+      "prompt": "Review my current diff before I merge. There is no ticket or spec, just tell me what would block this.",
+      "expected_output": "Agent identifies the diff as scope, builds a compact review packet, skips acceptance review because no requirements were provided, and reports findings first with severity, file evidence, impact, and fix guidance.",
+      "files": []
+    },
+    {
+      "id": "spec-backed-review",
+      "prompt": "Review the changes on this branch against docs/plans/team-saved-views.md. Make sure the implementation satisfies the acceptance criteria and does not add unrelated behavior.",
+      "expected_output": "Agent reviews the diff against the referenced plan, uses diff/context/acceptance lenses, flags missed or contradicted acceptance criteria as must-fix or decision-needed, and includes verification notes.",
+      "files": []
+    },
+    {
+      "id": "review-and-fix-obvious-issues",
+      "prompt": "Run a code review and fix only the obvious issues. Do not make product or architecture decisions without asking me.",
+      "expected_output": "Agent triages findings before editing, applies only clearly patchable issues inside scope, leaves decision-needed findings unresolved for the user, and summarizes checks run.",
+      "files": []
+    },
+    {
+      "id": "large-diff-halt",
+      "prompt": "Review this huge branch that changes auth, billing, and the database schema all at once. I need a useful review, not a generic pass.",
+      "expected_output": "Agent recognizes that the scope is too broad for responsible review, asks to split or narrow by subsystem, and proposes a review order based on risk.",
+      "files": []
+    },
+    {
+      "id": "implicit-look-over-branch",
+      "prompt": "Can you look over my branch before I open the PR? Mostly worried about regressions and whether it still matches the ticket.",
+      "expected_output": "Agent treats the request as a code review, selects an appropriate branch or diff scope, checks for regressions and ticket/spec alignment when available, and returns evidence-backed findings before summary.",
+      "files": []
+    }
+  ]
+}

@@ -8,6 +8,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 
 | Skill | 分类 | Description |
 |-------|------|-------------|
+| [ko-cq-review](./ko-cq-review/) | Code Quality | 多视角代码审查，结合独立 review packet、diff/context/spec lenses 和 actionable triage |
 | [ko-dx-rca](./ko-dx-rca/) | Developer Experience | 根因分析 (5-Why methodology) |
 | [ko-kb-html](./ko-kb-html/) | Knowledge Base | 为 plan、architecture、PRD、prototype、review、research、report 等长文档生成自包含 HTML companion |
 
@@ -16,6 +17,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 ### Claude Code
 
 ```bash
+claude mcp add-skill /path/to/myskills/ko-cq-review
 claude mcp add-skill /path/to/myskills/ko-dx-rca
 claude mcp add-skill /path/to/myskills/ko-kb-html
 ```
@@ -55,6 +57,10 @@ myskills/
 ├── evals/
 │   └── evals.json         # Skill pressure scenarios
 ├── index.md               # Directory index
+├── ko-cq-review/
+│   ├── SKILL.md
+│   └── evals/
+│       └── evals.json
 ├── ko-dx-rca/
 │   └── SKILL.md
 ├── ko-kb-html/

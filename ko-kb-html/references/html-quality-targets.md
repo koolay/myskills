@@ -25,6 +25,7 @@ Apply this target whenever the HTML is generated from Markdown or a doc folder.
 - A folder conversion produces predictable sibling `.html` files and an index only when the index helps navigation.
 - Generated CSS/JS is wrapped in stable sentinel comments and replaced cleanly on rerun.
 - Source Markdown remains the authority; generated HTML can be rebuilt without manual patching.
+- YAML frontmatter or source metadata is stripped before body rendering unless the user explicitly wants it visible.
 - The generator is idempotent: rerunning it with unchanged inputs does not accumulate whitespace, duplicate assets, or altered SVG output.
 - Defects in generated output are fixed in the generator or injected shared assets, then regenerated. Hand-patching generated HTML is only acceptable as temporary diagnosis.
 - Verification includes at least one browser screenshot or DOM check when browser tools are available.
@@ -48,6 +49,9 @@ Use this target whenever the companion contains Mermaid, SVG diagrams, or genera
 ## Reference-Level Bar
 
 - First viewport makes the document identity, scope, status, and next decision obvious.
+- Architecture and long knowledge-base companions are desktop-first: wide screens prioritize dense reading, sticky navigation, diagrams, and tables.
+- On desktop, the left navigation can collapse so the main reading surface expands without losing section access.
+- On mobile, the first viewport shows the document identity or hero before a long navigation list.
 - Visual blocks carry implementation or review value; never use diagrams as decoration.
 - Each table or diagram names owners, risks, surfaces, contracts, or decisions when applicable.
 - A mobile reader can identify scope, sequence, risk, and next decisions within 30 seconds.

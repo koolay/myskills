@@ -19,6 +19,8 @@ Before creating HTML, read `references/html-quality-targets.md` and apply the re
 
 When Mermaid rendering or diagram interaction is involved, also read `references/mermaid-interaction-pattern.md` before editing.
 
+When converting substantial Markdown to a reproducible HTML companion, especially architecture docs with Mermaid/tables/frontmatter, also read `references/md-to-html-companion-implementation.md`.
+
 ## Dependency Posture
 
 Default to zero new dependencies.
@@ -36,9 +38,10 @@ Default to zero new dependencies.
 3. Create one standalone `.html` companion per source document with inline CSS and only clarifying inline JavaScript. For a folder or doc set, generate sibling companions and add an index page only when it improves navigation.
 4. Use semantic HTML: `header`, `main`, `section`, `nav`, `aside`, `table`, `details`, `summary`, `figure`, `svg`, `code`.
 5. Add TOC navigation for 4+ sections; use labeled inline SVG for flows, maps, and timelines.
-6. Add print styles and responsive CSS. Mobile must be single-column with no horizontal overflow.
-7. Keep offline by default: no external fonts, scripts, images, CDNs, tracking, or hidden network calls without explicit approval.
-8. Verify generated HTML when tools allow it. For visual or interactive changes, verify in a real browser and inspect screenshots before calling the work done.
+6. For architecture and substantial KB companions, design desktop-first with a collapsible left navigation rail; on mobile, place the document identity/hero before the long TOC.
+7. Add print styles and responsive CSS. Mobile must be single-column with no horizontal overflow.
+8. Keep offline by default: no external fonts, scripts, images, CDNs, tracking, or hidden network calls without explicit approval.
+9. Verify generated HTML when tools allow it. For visual or interactive changes, verify in a real browser and inspect screenshots before calling the work done.
 
 Default paths: `[source].md` -> `[source].html`; chat-only -> `docs/html/YYYY-MM-DD-[short-title].html`.
 
@@ -47,11 +50,15 @@ Default paths: `[source].md` -> `[source].html`; chat-only -> `docs/html/YYYY-MM
 Use a generator when the user asks to convert many docs, when regeneration is likely, or when rendering diagrams would otherwise require manual edits.
 
 - Keep generators small and project-local, for example `scripts/render-doc-html.ts` or `scripts/render-architecture-mermaid.ts`.
+- If no suitable generator exists, adapt `templates/markdown-html-companion-generator.mjs` into the target project rather than hand-patching generated HTML.
 - Wrap injected CSS/JS with stable sentinel comments and strip old generated blocks before re-injecting them.
 - Preserve hand-authored Markdown as source; generated HTML should be reproducible from source plus the generator.
 - Make repeated runs safe. A second run with unchanged inputs should print that nothing changed or leave file hashes unchanged.
 - Do not hand-patch generated HTML in ways the generator cannot reproduce. Update the generator, then regenerate.
 - When fixing generated output, first locate the generator or build step. Patch generated HTML only as a temporary diagnosis aid; the final fix belongs in the generator and must be regenerated.
+- Strip YAML frontmatter before Markdown conversion unless the user explicitly wants it visible.
+- For long TOCs on mobile, put the document identity/hero before the navigation so the first viewport is useful.
+- If build-time Mermaid rendering fails because there is no DOM, reuse existing Playwright/browser automation as the temporary DOM host before considering new dependencies.
 
 ## Mermaid and Diagrams
 
@@ -113,6 +120,9 @@ Use this sequence when the user reports diagram problems:
 - **Non-idempotent regeneration:** Remove stale generated blocks before injecting new ones; repeated runs should not accumulate whitespace, CSS, or scripts.
 - **HTML for tiny responses:** Skip ceremony without comprehension value.
 - **Uninspected output:** Check anchors, overflow, contrast, missing sections, and mobile readability.
+- **Visible frontmatter:** Strip Markdown metadata before rendering body content.
+- **Mobile opens on only the TOC:** Reorder responsive layout so the document title and summary are first.
+- **No idempotence proof:** Re-run the generator and compare file hash or report unchanged output.
 
 ## Output Format
 

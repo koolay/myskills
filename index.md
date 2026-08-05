@@ -10,6 +10,11 @@
 
 ## Subdirectories
 
+### ko-cq-review/
+
+- **[SKILL.md](./ko-cq-review/SKILL.md)** - Multi-lens code review workflow with independent context packets and actionable triage
+- **[evals/evals.json](./ko-cq-review/evals/evals.json)** - Pressure scenarios for code review skill validation
+
 ### ko-dx-rca/
 
 - **[SKILL.md](./ko-dx-rca/SKILL.md)** - Structured root cause analysis workflow

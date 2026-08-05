@@ -1,0 +1,41 @@
+{
+  "skill_name": "streaming-ux-acceptance",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "The React Markdown chat UI pauses for about a second and then dumps a paragraph. Diagnose the root cause and add an acceptance test that distinguishes upstream batching from Markdown rendering cost. Do not use a real LLM.",
+      "expected_output": "An evidence-backed diagnosis with a deterministic red browser timing test and an owning-layer cadence test.",
+      "files": [],
+      "expectations": [
+        "The workflow traces producer buffering through transport, store, renderer, and visible DOM.",
+        "The browser test samples visible DOM changes over time rather than only checking final text.",
+        "A continuous-input control or equivalent evidence separates renderer cost from upstream burst cadence.",
+        "The result records measurable thresholds and does not call a real LLM."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Review and validate a patch that changes an Agent stream flush timer from 1000 ms to 40 ms and adds requestAnimationFrame pacing for large client bursts. Decide whether it is safe to ship and fill any missing tests.",
+      "expected_output": "A layered acceptance run covering latency, presentation pacing, protocol integrity, terminal behavior, Unicode safety, and production build boundaries.",
+      "files": [],
+      "expectations": [
+        "The validation includes a fake-timer first-short-chunk latency contract.",
+        "The pacing tests cover bounded catch-up, immediate terminal/error behavior, non-append replacement, and surrogate-pair safety.",
+        "The browser test requires multiple visible intermediate states with a bounded gap and exact final text.",
+        "The workflow runs the client-specific typecheck or production build in addition to root checks."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The directly affected streaming Playwright suite passes, but the full browser suite cannot start because kind cannot pull its node image from Docker Hub. Produce the final acceptance status for the change.",
+      "expected_output": "A partially verified result that preserves passed evidence and identifies the exact infrastructure gap without misreporting it as a product failure or a pass.",
+      "files": [],
+      "expectations": [
+        "The Docker registry timeout is classified as an infrastructure failure before product assertions.",
+        "The directly affected passing suite is reported separately from the unverified full suite.",
+        "The outcome is partially verified rather than fully accepted or rejected solely from the infrastructure failure.",
+        "The report gives a reproducible rerun boundary without bypassing hooks or tests."
+      ]
+    }
+  ]
+}

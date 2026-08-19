@@ -8,6 +8,10 @@
 - **[SKILL_TEMPLATE.md](./SKILL_TEMPLATE.md)** - New skill scaffold template
 - **[evals/evals.json](./evals/evals.json)** - Pressure scenarios for skill validation
 
+## Research Notes
+
+- **[research/maple-local-mode.md](./research/maple-local-mode.md)** - Primary-source findings for Maple Local observability and CLI behavior
+
 ## Subdirectories
 
 ### ko-cq-review/
@@ -18,6 +22,11 @@
 ### ko-dx-rca/
 
 - **[SKILL.md](./ko-dx-rca/SKILL.md)** - Structured root cause analysis workflow
+
+### ko-dx-maple-observe/
+
+- **[SKILL.md](./ko-dx-maple-observe/SKILL.md)** - Use existing Maple Local logs, traces, and metrics for local service diagnosis
+- **[evals/evals.json](./ko-dx-maple-observe/evals/evals.json)** - Maple observability skill pressure scenarios
 
 ### ko-dx-linux-verify/
 

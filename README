@@ -10,6 +10,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 |-------|------|-------------|
 | [ko-cq-review](./ko-cq-review/) | Code Quality | 多视角代码审查，结合独立 review packet、diff/context/spec lenses 和 actionable triage |
 | [ko-dx-rca](./ko-dx-rca/) | Developer Experience | 根因分析 (5-Why methodology) |
+| [ko-dx-maple-observe](./ko-dx-maple-observe/) | Developer Experience | 使用已运行的 Maple Local 通过 logs、traces、metrics 定位本地服务 bug 与性能问题 |
 | [ko-dx-linux-verify](./ko-dx-linux-verify/) | Developer Experience | 在 macOS 上用本地 smolvm 验证 Linux-only 行为、CI、容器和 Kubernetes 场景 |
 | [ko-kb-html](./ko-kb-html/) | Knowledge Base | 为 plan、architecture、PRD、prototype、review、research、report 等长文档生成自包含 HTML companion |
 | [ko-kb-site-docs](./ko-kb-site-docs/) | Knowledge Base | 生成或重构项目文档站点，包括信息架构、导航、页面层级、参考文档和发布验证 |
@@ -67,6 +68,10 @@ myskills/
 │       └── evals.json
 ├── ko-dx-rca/
 │   └── SKILL.md
+├── ko-dx-maple-observe/
+│   ├── SKILL.md
+│   └── evals/
+│       └── evals.json
 ├── ko-dx-linux-verify/
 │   ├── SKILL.md
 │   └── evals/

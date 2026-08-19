@@ -1,0 +1,23 @@
+{
+  "skill_name": "ko-dx-maple-observe",
+  "evals": [
+    {
+      "id": "maple-not-running",
+      "prompt": "本地 API 返回 500，帮我用 Maple 看一下 trace 和日志。当前机器可能还没启动 Maple。",
+      "expected_output": "Agent checks for the Maple CLI and existing local server, does not install or start Maple, and gives a friendly actionable message if Maple is unavailable.",
+      "files": []
+    },
+    {
+      "id": "trace-error-latency-correlation",
+      "prompt": "订单服务最近偶发 5xx 且 p95 变慢。Maple Local 已经运行，请用最近 30 分钟的数据定位根因，并比较修改前后的结果。",
+      "expected_output": "Agent uses the requested 30-minute window, explicit local, bounded read-only queries with only documented flags for service health, errors, traces, correlated logs, slow traces/top operations, and a valid comparison; separates evidence from hypotheses and distinguishes application from downstream spans.",
+      "files": []
+    },
+    {
+      "id": "telemetry-gap",
+      "prompt": "帮我分析这个服务为什么慢，代码里没有明显错误，但我不确定 OTEL 是否真的发到了 Maple。",
+      "expected_output": "Agent verifies service identity and OTLP configuration before diagnosing, reports missing telemetry as a gap instead of inventing findings, and proposes the smallest explicit instrumentation/configuration follow-up.",
+      "files": []
+    }
+  ]
+}

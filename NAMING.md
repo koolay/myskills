@@ -44,6 +44,7 @@ ko-{分类}-{功能}
 ko-dx-rca          根因分析
 ko-dx-debug        错误追踪与调试
 ko-dx-perf         性能分析
+ko-dx-linux-verify macOS 上的 Linux 验证
 
 ko-cq-review       代码审查
 ko-cq-refactor     重构建议

@@ -19,6 +19,11 @@
 
 - **[SKILL.md](./ko-dx-rca/SKILL.md)** - Structured root cause analysis workflow
 
+### ko-dx-linux-verify/
+
+- **[SKILL.md](./ko-dx-linux-verify/SKILL.md)** - macOS 上使用本地 smolvm 验证 Linux-only 行为
+- **[evals/evals.json](./ko-dx-linux-verify/evals/evals.json)** - Linux 验证 skill 压力场景
+
 ### ko-kb-html/
 
 - **[SKILL.md](./ko-kb-html/SKILL.md)** - Self-contained HTML companion workflow for substantial agent-written documents

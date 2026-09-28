@@ -9,6 +9,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 | Skill | 分类 | Description |
 |-------|------|-------------|
 | [ko-cq-review](./ko-cq-review/) | Code Quality | 多视角代码审查，结合独立 review packet、diff/context/spec lenses 和 actionable triage |
+| [ko-cq-agent-guidelines](./ko-cq-agent-guidelines/) | Code Quality | Coding agent 的顶层行为准则：理解任务、控制改动范围、验证结果并清晰沟通 |
 | [ko-dx-rca](./ko-dx-rca/) | Developer Experience | 根因分析 (5-Why methodology) |
 | [ko-dx-maple-observe](./ko-dx-maple-observe/) | Developer Experience | 使用已运行的 Maple Local 通过 logs、traces、metrics 定位本地服务 bug 与性能问题 |
 | [ko-dx-linux-verify](./ko-dx-linux-verify/) | Developer Experience | 在 macOS 上用本地 smolvm 验证 Linux-only 行为、CI、容器和 Kubernetes 场景 |
@@ -21,6 +22,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 
 ```bash
 claude mcp add-skill /path/to/myskills/ko-cq-review
+claude mcp add-skill /path/to/myskills/ko-cq-agent-guidelines
 claude mcp add-skill /path/to/myskills/ko-dx-rca
 claude mcp add-skill /path/to/myskills/ko-dx-linux-verify
 claude mcp add-skill /path/to/myskills/ko-kb-html
@@ -30,6 +32,14 @@ claude mcp add-skill /path/to/myskills/ko-kb-site-docs
 ### Codex
 
 Copy the skill's `SKILL.md` content into your Codex agent instructions or reference it via project config.
+
+For session-wide coding guidelines, make `ko-cq-agent-guidelines` available to the agent and add this to the project's or user's agent instructions (for example, `AGENTS.md` or `CLAUDE.md`):
+
+```markdown
+At session start, read and apply ko-cq-agent-guidelines/SKILL.md from its installed location. Preserve its active preference and task state across turns and handoffs, subject to the host's instruction hierarchy and my explicit changes or exit request.
+```
+
+Use the actual installed path if needed. A skill description enables discovery; the instruction above requests loading at session start and does not change system-level priority.
 
 For always-on HTML companions, add this global agent instruction after installing or copying `ko-kb-html`:
 
@@ -64,6 +74,12 @@ myskills/
 ├── index.md               # Directory index
 ├── ko-cq-review/
 │   ├── SKILL.md
+│   └── evals/
+│       └── evals.json
+├── ko-cq-agent-guidelines/
+│   ├── SKILL.md
+│   ├── references/
+│   │   └── maintenance.md
 │   └── evals/
 │       └── evals.json
 ├── ko-dx-rca/

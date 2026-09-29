@@ -10,10 +10,18 @@
 
 ## Research Notes
 
+- **[research/agent-guidelines-review.md](./research/agent-guidelines-review.md)** - Source-fidelity review, revision mapping, and manual scenario walkthroughs for coding-agent guidelines
+
 - **[research/maple-local-mode.md](./research/maple-local-mode.md)** - Primary-source findings for Maple Local observability and CLI behavior
 - **[research/ai-native-project-structure.md](./research/ai-native-project-structure.md)** - Primary-source findings for AI-native project structure, bootstrap, and plan-first modernization
 
 ## Subdirectories
+
+### ko-cq-agent-guidelines/
+
+- **[SKILL.md](./ko-cq-agent-guidelines/SKILL.md)** - Top-level coding-agent guidelines for judgment, scope, verification, and communication
+- **[evals/evals.json](./ko-cq-agent-guidelines/evals/evals.json)** - Pressure scenarios for the coding-agent guidelines
+- **[references/maintenance.md](./ko-cq-agent-guidelines/references/maintenance.md)** - On-demand source mapping, adaptations, and verification guidance
 
 ### ko-cq-review/
 

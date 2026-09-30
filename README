@@ -1,133 +1,144 @@
 # My Skills
 
-Personal collection of dev skills for [Codex (OpenAI)](https://github.com/openai/codex) and [Claude Code (Anthropic)](https://github.com/anthropics/claude-code), distilled from daily practice.
+个人维护的 AI coding-agent skills，供 Codex 和 Claude Code 使用，覆盖代码质量、调试验证、架构、知识文档和原创 UX 设计。
 
-All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
+仓库目前有 **13 个 skill**。每个 skill 的 `README.md` 说明适用场景、示例、输入产出、流程和边界；`SKILL.md` 是 agent 执行规则的来源。完整文件导航见 [index.md](./index.md)。
 
 ## Skills
 
-| Skill | 分类 | Description |
-|-------|------|-------------|
-| [ko-cq-review](./ko-cq-review/) | Code Quality | 多视角、五维代码审查，结合独立上下文、证据分级、依赖检查与修复验证 |
-| [ko-cq-agent-guidelines](./ko-cq-agent-guidelines/) | Code Quality | Coding agent 的顶层行为准则：理解任务、控制改动范围、验证结果并清晰沟通 |
-| [ko-sd-architect](./ko-sd-architect/) | System Design | 基于领域与证据的架构决策与设计输出规范：约束、契约、架构视图、质量场景和集成验收 |
-| [ko-kb-architecture-blueprint](./ko-kb-architecture-blueprint/) | Knowledge Base | 基于现有代码生成架构蓝图、关键流程及新功能接入指南 |
-| [ko-dx-rca](./ko-dx-rca/) | Developer Experience | 根因分析 (5-Why methodology) |
-| [ko-dx-maple-observe](./ko-dx-maple-observe/) | Developer Experience | 使用已运行的 Maple Local 通过 logs、traces、metrics 定位本地服务 bug 与性能问题 |
-| [ko-dx-linux-verify](./ko-dx-linux-verify/) | Developer Experience | 在 macOS 上用本地 smolvm 验证 Linux-only 行为、CI、容器和 Kubernetes 场景 |
-| [ko-kb-html](./ko-kb-html/) | Knowledge Base | 为 plan、architecture、PRD、prototype、review、research、report 等长文档生成自包含 HTML companion |
-| [ko-kb-site-docs](./ko-kb-site-docs/) | Knowledge Base | 生成或重构项目文档站点，包括信息架构、导航、页面层级、参考文档和发布验证 |
-| [ko-sd-project-harness](./ko-sd-project-harness/) | System Design | 初始化 startup 空项目，或先规划已有项目的 AI-native 工程化结构、布局、约束和验证回路 |
+| Skill / 使用说明 | 分类 | 适用任务 |
+| --- | --- | --- |
+| [ko-cq-agent-guidelines](./ko-cq-agent-guidelines/README.md) | Code Quality | 会话中的 coding-agent 行为准则：理解任务、最小改动、保护用户工作和如实验证 |
+| [ko-cq-review](./ko-cq-review/README.md) | Code Quality | diff、PR、分支或验收审查；默认只读，明确要求后可 review-and-fix |
+| [ko-dx-rca](./ko-dx-rca/README.md) | Developer Experience | 5-Why 根因分析、同类路径搜索和局部 / 类级修复建议 |
+| [ko-dx-maple-observe](./ko-dx-maple-observe/README.md) | Developer Experience | 从已运行的 Maple Local 查询日志、链路和指标，诊断本地服务 |
+| [ko-dx-linux-verify](./ko-dx-linux-verify/README.md) | Developer Experience | macOS 上使用 smolvm 验证 Linux、容器或 Kubernetes 特有行为 |
+| [ko-sd-architect](./ko-sd-architect/README.md) | System Design | 技术选型、契约与数据归属、迁移、失败恢复和集成验收 |
+| [ko-sd-project-harness](./ko-sd-project-harness/README.md) | System Design | 空 startup 仓库初始化；已有代码库的 AI-native 工程改进计划 |
+| [ko-kb-architecture-blueprint](./ko-kb-architecture-blueprint/README.md) | Knowledge Base | 根据现有代码记录架构、关键流程和新功能接入位置 |
+| [ko-kb-html](./ko-kb-html/README.md) | Knowledge Base | 自包含离线 HTML companion、Mermaid 交互和可重复生成 |
+| [ko-kb-site-docs](./ko-kb-site-docs/README.md) | Knowledge Base | 文档站点的信息架构、导航、reference、路由兼容和发布验证 |
 | [ko-ux-agent-design](./ko-ux-agent-design/README.md) | User Experience | AI Agent 的跨会话协作、记忆控制、授权行动、共同规划和信任恢复 |
-| [ko-ux-innovative-design](./ko-ux-innovative-design/) | User Experience | 从主题证据生成十个独立排版方向，用户视觉判断并锁定后制作实际作品与风格指南 |
+| [ko-ux-innovative-design](./ko-ux-innovative-design/README.md) | User Experience | 十个独立排版方向、用户视觉判断、明确锁定和实际作品制作 |
+| [ko-streaming-ux-acceptance](./ko-streaming-ux-acceptance/README.md) | Streaming UX（历史命名） | 流式聊天节奏、可见 DOM 时序、Markdown、协议完整性及终止旁路验收 |
 
-## Usage
+新 skill 按 [NAMING.md](./NAMING.md) 使用 `ko-{category}-{function}`。`ko-streaming-ux-acceptance` 保留历史目录名，内部 `name` 是 `streaming-ux-acceptance`；具体调用名称以工具发现结果为准。
 
-### Claude Code
+## 如何选择
+
+- **代码行为异常：** 用 `ko-dx-rca` 追踪根因；需要本地遥测时配合 `ko-dx-maple-observe`，Linux 特有行为用 `ko-dx-linux-verify`。
+- **检查代码变更：** 用 `ko-cq-review`；持续约束整个会话的改动与沟通方式用 `ko-cq-agent-guidelines`。
+- **架构问题：** 记录现状用 `ko-kb-architecture-blueprint`；决定新方案用 `ko-sd-architect`；初始化或改善工程基础用 `ko-sd-project-harness`。
+- **文档交付：** 单份离线 HTML 用 `ko-kb-html`；有多页面导航与发布需求的文档站用 `ko-kb-site-docs`。
+- **Agent 持续协作：** 用 `ko-ux-agent-design` 设计记忆、权限、计划连续性和错误恢复。
+- **体验问题：** 原创视觉语言用 `ko-ux-innovative-design`；流式聊天卡顿与跳字验收用 `ko-streaming-ux-acceptance`。
+
+按具体任务加载 skill。原创设计的第一轮源码检查、文档图表的浏览器检查和流式输出的 DOM 时序检查有不同边界，组合使用时应保留各自的验证要求。
+
+## 安装与使用
+
+这是文件式 skill 集合，没有包管理器安装、应用构建或部署步骤。安装时保留整个目录，包含 `references/`、`evals/`、`templates/` 和许可文件；只复制 `SKILL.md` 可能造成相对资源缺失。
+
+### 安装单个 skill
+
+在本仓库根目录运行，以下两个工具按需选择。示例将 skill 目录链接到用户级发现路径；目标已存在时 `ln -s` 会报错，请先检查现有内容，不使用强制覆盖。
+
+**Codex：** 用户级路径为 `~/.agents/skills/`，项目级路径为 `.agents/skills/`，支持链接目录。见 [Codex 官方 skills 文档](https://learn.chatgpt.com/docs/build-skills)。
 
 ```bash
-claude mcp add-skill /path/to/myskills/ko-cq-review
-claude mcp add-skill /path/to/myskills/ko-cq-agent-guidelines
-claude mcp add-skill /path/to/myskills/ko-sd-architect
-claude mcp add-skill /path/to/myskills/ko-kb-architecture-blueprint
-claude mcp add-skill /path/to/myskills/ko-dx-rca
-claude mcp add-skill /path/to/myskills/ko-dx-linux-verify
-claude mcp add-skill /path/to/myskills/ko-kb-html
-claude mcp add-skill /path/to/myskills/ko-kb-site-docs
-claude mcp add-skill /path/to/myskills/ko-sd-project-harness
-claude mcp add-skill /path/to/myskills/ko-ux-innovative-design
+mkdir -p "$HOME/.agents/skills"
+ln -s "$PWD/ko-cq-review" "$HOME/.agents/skills/ko-cq-review"
 ```
 
-### Codex
+**Claude Code：** 用户级路径为 `~/.claude/skills/`，项目级路径为 `.claude/skills/`，支持链接目录。见 [Claude Code 官方 skills 文档](https://code.claude.com/docs/en/skills)。
 
-Copy the skill's `SKILL.md` content into your Codex agent instructions or reference it via project config.
+```bash
+mkdir -p "$HOME/.claude/skills"
+ln -s "$PWD/ko-cq-review" "$HOME/.claude/skills/ko-cq-review"
+```
 
-For session-wide coding guidelines, make `ko-cq-agent-guidelines` available to the agent and add this to the project's or user's agent instructions (for example, `AGENTS.md` or `CLAUDE.md`):
+将 `ko-cq-review` 替换为清单中的目录名。也可以把完整目录复制到对应路径。符号链接跟随本仓库更新；复制的目录需要自行同步。以上示例适用于本机 CLI，不代替云环境的安装方式。
+
+### 安装全部 skill
+
+在本仓库根目录执行。示例为 Codex；Claude Code 将 `skill_target_root` 改成 `"$HOME/.claude/skills"`。已有文件、目录或符号链接会被跳过。
+
+```bash
+skill_target_root="$HOME/.agents/skills"
+mkdir -p "$skill_target_root"
+for skill_file in "$PWD"/*/SKILL.md; do
+  [ -f "$skill_file" ] || continue
+  skill_source="${skill_file%/SKILL.md}"
+  skill_target="$skill_target_root/${skill_source##*/}"
+  if [ ! -e "$skill_target" ] && [ ! -L "$skill_target" ]; then
+    ln -s "$skill_source" "$skill_target"
+  fi
+done
+```
+
+### 在任务中使用
+
+安装后可通过工具的 skill 选择入口或自然语言指定；各 README 有可直接改写的例子。未安装时，也可以要求 agent 读取仓库内的完整 `SKILL.md` 并应用规则：
+
+```text
+读取 /path/to/myskills/ko-cq-review/SKILL.md，审查当前 diff，只报告问题，不修改代码。
+```
+
+若工具尚未发现安装的 skill，重新开启会话后检查 skill 清单。加载规则不会自动授权购买、发布、破坏操作或外部系统变更。
+
+### 持续应用 coding-agent 准则
+
+在项目的 `AGENTS.md` 或 `CLAUDE.md` 中使用实际安装路径：
 
 ```markdown
 At session start, read and apply ko-cq-agent-guidelines/SKILL.md from its installed location. Preserve its active preference and task state across turns and handoffs, subject to the host's instruction hierarchy and my explicit changes or exit request.
 ```
 
-Use the actual installed path if needed. A skill description enables discovery; the instruction above requests loading at session start and does not change system-level priority.
+`description` 帮助发现 skill；项目指令负责要求每次加载。它们不改变工具的系统指令优先级。
 
-For always-on HTML companions, add this global agent instruction after installing or copying `ko-kb-html`:
+### 为长文档启用 HTML companion
+
+安装 `ko-kb-html` 后，可加入以下项目指令：
 
 ```markdown
-When you produce a substantial Markdown document such as a plan, architecture doc, PRD, prototype spec, review, research note, report, postmortem, or implementation brief, use `ko-kb-html` to create a self-contained `.html` companion when the document has enough structure to benefit from layout, navigation, diagrams, comparison, or interaction, unless the user explicitly asks for Markdown only.
+When you produce a substantial Markdown document such as a plan, architecture doc, PRD, prototype spec, review, research note, report, postmortem, or implementation brief, use ko-kb-html to create a self-contained .html companion when layout, navigation, diagrams, comparisons, or interaction help comprehension, unless the user explicitly requests Markdown only.
 ```
 
-## Creating a New Skill
+## 仓库结构
+
+```text
+myskills/
+├── AGENTS.md          # 仓库工作规则
+├── README             # 项目介绍、选型和安装
+├── NAMING.md          # 命名规则和分类
+├── SKILL_TEMPLATE.md  # 新 skill 模板
+├── index.md           # 文件导航
+├── ko-*/
+│   ├── README.md      # 人类使用说明
+│   ├── SKILL.md       # agent 执行指令
+│   ├── references/    # 按需阅读的参考（可选）
+│   ├── evals/         # 使用 / 压力场景（可选）
+│   ├── templates/     # 模板与工具（可选）
+│   └── LICENSE        # 独立许可说明（如有）
+├── evals/             # 仓库级场景
+├── research/          # 来源研究
+└── docs/plans/        # 验证计划
+```
+
+## 新增与维护 skill
+
+1. 先读 [AGENTS.md](./AGENTS.md) 和 [NAMING.md](./NAMING.md)，确认分类已登记。
+2. 从 [SKILL_TEMPLATE.md](./SKILL_TEMPLATE.md) 创建 `SKILL.md`；目录名与 frontmatter `name` 必须一致，`description` 以 `Use when...` 开头并只写触发条件。
+3. 编写明确的输入、执行步骤、产出、原则和停止条件，再用至少一个真实或压力场景验证。
+4. 新增或更新该 skill 的 `README.md`，同步本清单及 [index.md](./index.md)；保留来源和适用许可。
+5. 检查实际路径、frontmatter 和 diff。场景文件不是自动化测试通过证明；记录实际运行和未运行的部分。
+
+本仓库没有统一自动测试或构建命令。基础检查在仓库根目录执行：
 
 ```bash
-# 1. 创建目录（必须遵循 ko-{分类}-{功能} 格式）
-mkdir ko-dx-newskill
-
-# 2. 从模板创建 SKILL.md
-cp SKILL_TEMPLATE.md ko-dx-newskill/SKILL.md
-
-# 3. 编辑 SKILL.md，确保 name 与目录名一致
+rg '^---$|^name:|^description:' -g 'SKILL.md'
+rg --files
+git diff --check
 ```
 
-命名规则详见 [NAMING.md](./NAMING.md)。
-
-## Structure
-
-```
-myskills/
-├── AGENTS.md              # Agent instructions
-├── README
-├── NAMING.md              # 命名规范（必读）
-├── SKILL_TEMPLATE.md      # Skill 模板
-├── evals/
-│   └── evals.json         # Skill pressure scenarios
-├── index.md               # Directory index
-├── ko-cq-review/
-│   ├── SKILL.md
-│   └── evals/
-│       └── evals.json
-├── ko-cq-agent-guidelines/
-│   ├── SKILL.md
-│   ├── references/
-│   │   └── maintenance.md
-│   └── evals/
-│       └── evals.json
-├── ko-sd-architect/
-│   ├── SKILL.md
-│   ├── references/
-│   │   ├── architecture-output.md
-│   │   ├── maintenance.md
-│   │   └── migrations.md
-│   └── evals/
-│       └── evals.json
-├── ko-kb-architecture-blueprint/
-│   └── SKILL.md
-├── ko-dx-rca/
-│   └── SKILL.md
-├── ko-dx-maple-observe/
-│   ├── SKILL.md
-│   └── evals/
-│       └── evals.json
-├── ko-dx-linux-verify/
-│   ├── SKILL.md
-│   └── evals/
-│       └── evals.json
-├── ko-kb-html/
-│   ├── SKILL.md
-│   └── references/
-│       └── html-quality-targets.md
-├── ko-kb-site-docs/
-│   └── SKILL.md
-├── ko-sd-project-harness/
-│   ├── SKILL.md
-│   └── evals/
-│       └── evals.json
-├── ko-ux-innovative-design/
-│   ├── SKILL.md
-│   ├── LICENSE
-│   ├── references/
-│   │   └── maintenance.md
-│   └── evals/
-│       └── evals.json
-└── ko-{分类}-{功能}/
-    └── SKILL.md
-```
+涉及工具安装、网络查询、浏览器或 VM 的 skill 有各自前提，见对应使用说明。许可范围见各 skill 的 frontmatter、来源说明及独立 `LICENSE`（如有）。

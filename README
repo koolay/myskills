@@ -18,6 +18,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 | [ko-kb-html](./ko-kb-html/) | Knowledge Base | 为 plan、architecture、PRD、prototype、review、research、report 等长文档生成自包含 HTML companion |
 | [ko-kb-site-docs](./ko-kb-site-docs/) | Knowledge Base | 生成或重构项目文档站点，包括信息架构、导航、页面层级、参考文档和发布验证 |
 | [ko-sd-project-harness](./ko-sd-project-harness/) | System Design | 初始化 startup 空项目，或先规划已有项目的 AI-native 工程化结构、布局、约束和验证回路 |
+| [ko-ux-agent-design](./ko-ux-agent-design/README.md) | User Experience | AI Agent 的跨会话协作、记忆控制、授权行动、共同规划和信任恢复 |
 | [ko-ux-innovative-design](./ko-ux-innovative-design/) | User Experience | 从主题证据生成十个独立排版方向，用户视觉判断并锁定后制作实际作品与风格指南 |
 
 ## Usage

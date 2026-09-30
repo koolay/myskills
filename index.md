@@ -76,3 +76,9 @@
 - **[LICENSE](./ko-ux-innovative-design/LICENSE)** - Upstream MIT license notice
 - **[references/maintenance.md](./ko-ux-innovative-design/references/maintenance.md)** - Source mapping, local adaptations, and verification guidance
 - **[evals/evals.json](./ko-ux-innovative-design/evals/evals.json)** - Creative isolation, selection, production, and scope pressure scenarios
+
+### ko-ux-agent-design/
+
+- **[README.md](./ko-ux-agent-design/README.md)** - 使用示例、边界、来源适配与人工走查记录
+- **[SKILL.md](./ko-ux-agent-design/SKILL.md)** - AI Agent 持续协作、记忆契约、授权行动与恢复体验设计
+- **[evals/evals.json](./ko-ux-agent-design/evals/evals.json)** - 跨会话、权限、遗忘与触发边界压力场景

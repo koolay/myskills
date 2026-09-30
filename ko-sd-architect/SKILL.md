@@ -57,13 +57,11 @@ Skip this step for recommendation-only requests unless slices are necessary to d
 
 ## Output Format
 
-Use the user's language and format. For small decisions, report recommendation, evidence/tradeoff, and checks or blockers inline. For larger decisions use:
+Use the user's language and requested format. For a small decision, report the recommendation, evidence/tradeoff, and checks or blockers inline.
 
-- **Decision:** Outcome, acceptance criteria, recommendation, accepted tradeoff.
-- **Evidence:** Facts/sources, assumptions, hard constraints/preferences, open decisions.
-- **Boundaries:** Flows, contracts, feasible alternatives, and material failure mappings.
-- **Verification:** Criterion -> check -> status; migration conditions when applicable.
-- **Slices, when needed:** Slice | Context/ownership | Contract/dependencies | Check | Recovery; integration owner and check.
+When creating or materially updating an architecture design document, or a substantial proposal for design review, read and apply [architecture output specification](./references/architecture-output.md). Map its content into the project's existing template; reuse authoritative contracts and decisions by reference.
+
+**Complete when:** Every applicable content item in that specification has an answer, an authoritative reference, or an explicit gap with its impact. Diagrams, contracts, decisions, and verification mappings agree; decision and check statuses match available evidence.
 
 ## Important Principles
 

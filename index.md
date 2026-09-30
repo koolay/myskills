@@ -37,6 +37,7 @@
 - **[evals/evals.json](./ko-sd-architect/evals/evals.json)** - Architecture decision pressure scenarios
 - **[references/maintenance.md](./ko-sd-architect/references/maintenance.md)** - Source mapping, independent adaptations, and manual scenario results
 - **[references/migrations.md](./ko-sd-architect/references/migrations.md)** - Conditional compatibility, rollout, and data recovery rules
+- **[references/architecture-output.md](./ko-sd-architect/references/architecture-output.md)** - Tailored architecture document content, views, quality scenarios, decisions, and completion review
 
 ### ko-dx-maple-observe/
 

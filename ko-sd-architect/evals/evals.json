@@ -40,13 +40,25 @@
     {
       "id": "recommendation-only-tooling",
       "prompt": "内部文档搜索现在只支持关键词。用户需要按服务名找运维手册，现有文档已有服务标签，团队两人，暂时没有语义检索需求。只评估是否加向量数据库，给简短建议，不要实现计划。",
-      "expected_output": "Recommends using existing service tags or filtering when sufficient, ties the choice to the stated retrieval outcome, and supplies a planned retrieval check plus a revisit condition. Omits implementation slices and migration details because neither is needed for feasibility. Produces no code or additional documents.",
+      "expected_output": "Recommends using existing service tags or filtering when sufficient, ties the choice to the stated retrieval outcome, and supplies a planned retrieval check plus a revisit condition. Omits implementation slices, migration details, and the full architecture output specification because they are unnecessary for this short recommendation. Produces no code or additional documents.",
       "files": []
     },
     {
       "id": "document-format-migration",
       "prompt": "设计协作文档存储升级：旧版本正文是字符串，新版本是结构化块，两种客户端要共存一周。新版本写入的块可能无法无损变回字符串。文档不能丢失。请给迁移和实现拆分方案，不执行。",
       "expected_output": "Loads references/migrations.md, inventories both client versions and persisted formats, specifies compatibility sequencing and treatment of irreversible new writes, and marks rollback limitations explicitly. Gives proposed rollout/stop conditions, mixed-version and recovery checks with honest statuses, and slices with shared-schema ownership plus an integration owner. Uses document-domain contracts without importing payment-specific rules.",
+      "files": []
+    },
+    {
+      "id": "architecture-document-output",
+      "prompt": "为内部文档导出服务写一份正式架构设计供研发和运维评审，只出设计。已有 API、SQL 数据库、作业队列和对象存储。管理员发起导出，普通用户只能下载自己有权限的文档。目标：正常负载下 95% 的导出在 30 秒内完成，但负载条件、成本预算和部署拓扑尚未确定。需要解释队列重复交付、对象写入失败、权限撤销后的下载行为。",
+      "expected_output": "Loads architecture-output.md and covers goals/invariants, evidence/constraints, quality scenarios, choices with proposed decision statuses, context/structure and cross-boundary runtime views, affected data/interface/access contracts, risks/recovery, and criterion-to-check/status mappings. Labels missing workload and deployment assumptions instead of inventing benchmarks or topology. Identifies reviewer concerns, keeps views and contract names consistent, and does not claim approval or successful measurements. Includes slices only if needed for feasibility or requested scope.",
+      "files": []
+    },
+    {
+      "id": "existing-template-and-provisional-quality",
+      "prompt": "把协作文档架构设计更新到我们现有的三个章节：背景、方案、验证。正文字符串升级成结构化块，两种客户端共存一周，有些块不能无损降级。技术负责人已经接受迁移方向，但部署区域、质量指标、具体转换策略都没确认。请沿用这三个章节并包含实施拆分。",
+      "expected_output": "Loads architecture-output.md and migrations.md. Maps required content into the three existing headings, preserves the distinction between accepted migration direction and proposed details, records quality targets as unknown/proposed, and states readiness gaps. Covers mixed-version contracts, irreversible-write recovery limits, conditional deployment view, schema ownership, implementation dependencies and integration verification. Reuses linked authoritative artifacts when available instead of creating a duplicate template or inventing approvals.",
       "files": []
     }
   ]

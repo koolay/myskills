@@ -1,0 +1,36 @@
+{
+  "skill_name": "ko-ux-innovative-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我们为社区的修理志愿者办一个活动，想让居民感到旧东西值得修复。现有主题文字是：修好，再用。先给我原创视觉方向。团队有人建议看 Dribbble 案例，用卡片、渐变和图标做十个方案；你判断怎样推进。先说明下一步和交付内容，不创建文件。",
+      "expected_output": "Recognizes sufficient subject and intent; identifies repair behavior as subject evidence; preserves exact copy; redirects the reference/effect request into ten independent typography-only HTML directions with hidden capsules; does not browse galleries or promise rendered previews; explains the requested workflow conflict without claiming files exist.",
+      "files": [],
+      "assertions": [
+        "Proposes subject evidence rather than opening Dribbble or copying references.",
+        "Specifies ten independent HTML directions with typography, flat colors, and whitespace; excludes cards, gradients, and icons in Round 1.",
+        "Keeps concept capsules and persuasive labels out of the first visual encounter.",
+        "Leaves first visual judgement to the human and does not promise screenshots or agent rendering.",
+        "Preserves supplied copy and reports a plan rather than claiming artifacts were created."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "C 看起来不错，我挺喜欢，但还没决定。正式阶段需要三个宣传页面，字体授权以后再补。先说后续怎么推进。",
+      "expected_output": "Distinguishes praise from an explicit lock, asks a focused question to lock C, does not begin production without that decision, and requires font rights or a disclosed licensed fallback before formal delivery.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "已明确锁定 C，ROUND-2-CONTEXT.md 有记录。继续把已批准的活动主页适配手机，保留全部文案。只要这一个页面，不要新方案。",
+      "expected_output": "Reads the locked context and approved artifact, skips A-J generation, adapts only the requested page, preserves exact copy and identity rules, checks relevant responsive/accessibility behavior, and reports actual verification without inventing acceptance.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "修一下现有表单的键盘焦点问题，颜色、字体和组件都按现有设计系统，不需要新的视觉方向。",
+      "expected_output": "Does not activate originality exploration; handles the existing interface under its established design rules without generating ten directions or reopening the system.",
+      "files": []
+    }
+  ]
+}

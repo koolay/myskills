@@ -24,6 +24,7 @@ ko-{分类}-{功能}
 | `cq` | Code Quality | 审查、重构、安全 |
 | `gf` | Git Flow | commit、PR、changelog |
 | `sd` | System Design | 技术方案、API、DB |
+| `ux` | User Experience | 原创视觉语言、交互与界面设计 |
 | `kb` | Knowledge Base | 文档、代码解读 |
 
 新增分类需在此表中登记后方可使用。

@@ -69,3 +69,10 @@
 
 - **[SKILL.md](./ko-sd-project-harness/SKILL.md)** - Empty-project bootstrap and plan-first AI-native engineering workflow
 - **[evals/evals.json](./ko-sd-project-harness/evals/evals.json)** - Startup bootstrap and non-empty repository pressure scenarios
+
+### ko-ux-innovative-design/
+
+- **[SKILL.md](./ko-ux-innovative-design/SKILL.md)** - Subject-derived typography exploration, human visual judgement, explicit lock, and concrete production
+- **[LICENSE](./ko-ux-innovative-design/LICENSE)** - Upstream MIT license notice
+- **[references/maintenance.md](./ko-ux-innovative-design/references/maintenance.md)** - Source mapping, local adaptations, and verification guidance
+- **[evals/evals.json](./ko-ux-innovative-design/evals/evals.json)** - Creative isolation, selection, production, and scope pressure scenarios

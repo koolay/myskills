@@ -20,15 +20,45 @@
       "files": []
     },
     {
-      "id": "large-diff-halt",
+      "id": "large-diff-coverage",
       "prompt": "Review this huge branch that changes auth, billing, and the database schema all at once. I need a useful review, not a generic pass.",
-      "expected_output": "Agent recognizes that the scope is too broad for responsible review, asks to split or narrow by subsystem, and proposes a review order based on risk.",
+      "expected_output": "Agent reviews auth, billing, and schema changes in risk order, tracks reviewed coverage, and checks cross-subsystem interactions. It asks for narrower scope only if concrete context or capacity limits still prevent responsible coverage, and never approves unseen areas.",
       "files": []
     },
     {
       "id": "implicit-look-over-branch",
       "prompt": "Can you look over my branch before I open the PR? Mostly worried about regressions and whether it still matches the ticket.",
       "expected_output": "Agent treats the request as a code review, selects an appropriate branch or diff scope, checks for regressions and ticket/spec alignment when available, and returns evidence-backed findings before summary.",
+      "files": []
+    },
+    {
+      "id": "green-tests-broken-caller",
+      "prompt": "Review only. money.py:1 changes def to_cents(value): return round(value * 100) to def to_cents(value): return int(value * 100). api.py:8 passes 1.239; invoice.py:12 relies on nearest-cent rounding. The only test checks to_cents(2) == 200 and passes. Requirement: preserve nearest-cent rounding for all callers.",
+      "expected_output": "Report must-fix: money.py:1 changes 1.239 from 124 to 123 and breaks invoice rounding. Identify the happy-path coverage gap, suggest restoring rounding and a fractional regression check, do not edit, and request changes.",
+      "files": []
+    },
+    {
+      "id": "guarded-input-false-positive",
+      "prompt": "Review only. Diff in handler.py:4 changes response = str(count) to response = str(100 // count). Full handler: count = int(request.query[\"count\"]); if count <= 0: return bad_request(); response = str(100 // count). Query parsing already catches ValueError. No spec supplied. A blind reviewer claims divide-by-zero.",
+      "expected_output": "Dismiss divide-by-zero after verifying the dominating guard. Do not invent blockers or edit code; skip acceptance review and disclose checks not run. Distinguish the blind candidate from a verified finding.",
+      "files": []
+    },
+    {
+      "id": "dependency-patch-behavior",
+      "prompt": "Review an acme-client 1.2.1 to 1.2.2 bump. Manifest and lockfile change. Provided release note: timeout units changed from seconds to milliseconds. client.py:9 still passes timeout=30; the project requires a 30-second timeout. Install passed; no runtime checks ran.",
+      "expected_output": "Report concrete contract mismatch as must-fix, inspect lockfile and consumer usage, recommend the supported equivalent timeout and a focused test. Do not equate installation or patch semver with compatibility; request changes.",
+      "files": []
+    },
+    {
+      "id": "large-mechanical-rename",
+      "prompt": "Review a 1500-line mechanical internal symbol rename. All definitions and references are supplied; there are no public exports or string registrations. Behavior checks pass. Do not apply edits.",
+      "expected_output": "Check references and boundaries, do not block solely on line count, and approve if the supplied evidence supports full coverage and no defects are found.",
+      "files": []
+    },
+    {
+      "id": "fix-verification-and-dead-code",
+      "prompt": "Review and fix obvious issues. retry.py calls send() again even after success; test asserts only that send was called at least once. legacy_handler has no direct callers but is registered by name in plugins.json. Keep the public API.",
+      "expected_output": "Fix the retry success path within scope and verify the successful send is called once. Inspect final diff and report actual checks. Preserve the registered handler; no text caller is insufficient evidence for deletion.",
       "files": []
     }
   ]

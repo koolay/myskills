@@ -8,7 +8,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 
 | Skill | 分类 | Description |
 |-------|------|-------------|
-| [ko-cq-review](./ko-cq-review/) | Code Quality | 多视角代码审查，结合独立 review packet、diff/context/spec lenses 和 actionable triage |
+| [ko-cq-review](./ko-cq-review/) | Code Quality | 多视角、五维代码审查，结合独立上下文、证据分级、依赖检查与修复验证 |
 | [ko-cq-agent-guidelines](./ko-cq-agent-guidelines/) | Code Quality | Coding agent 的顶层行为准则：理解任务、控制改动范围、验证结果并清晰沟通 |
 | [ko-sd-architect](./ko-sd-architect/) | System Design | 基于领域与证据的架构决策与设计输出规范：约束、契约、架构视图、质量场景和集成验收 |
 | [ko-dx-rca](./ko-dx-rca/) | Developer Experience | 根因分析 (5-Why methodology) |

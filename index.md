@@ -13,6 +13,7 @@
 - **[research/agent-guidelines-review.md](./research/agent-guidelines-review.md)** - Source-fidelity review, revision mapping, and manual scenario walkthroughs for coding-agent guidelines
 
 - **[research/maple-local-mode.md](./research/maple-local-mode.md)** - Primary-source findings for Maple Local observability and CLI behavior
+- **[research/ai-native-project-structure.md](./research/ai-native-project-structure.md)** - Primary-source findings for AI-native project structure, bootstrap, and plan-first modernization
 
 ## Subdirectories
 
@@ -59,3 +60,8 @@
 - **[SKILL.md](./ko-kb-site-docs/SKILL.md)** - Project documentation site generation and refactoring workflow
 - **[evals/evals.json](./ko-kb-site-docs/evals/evals.json)** - Site docs skill validation scenarios
 - **[references/vitepress-mermaid.md](./ko-kb-site-docs/references/vitepress-mermaid.md)** - VitePress Mermaid rendering reference pattern
+
+### ko-sd-project-harness/
+
+- **[SKILL.md](./ko-sd-project-harness/SKILL.md)** - Empty-project bootstrap and plan-first AI-native engineering workflow
+- **[evals/evals.json](./ko-sd-project-harness/evals/evals.json)** - Startup bootstrap and non-empty repository pressure scenarios

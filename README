@@ -10,6 +10,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 |-------|------|-------------|
 | [ko-cq-review](./ko-cq-review/) | Code Quality | 多视角代码审查，结合独立 review packet、diff/context/spec lenses 和 actionable triage |
 | [ko-cq-agent-guidelines](./ko-cq-agent-guidelines/) | Code Quality | Coding agent 的顶层行为准则：理解任务、控制改动范围、验证结果并清晰沟通 |
+| [ko-sd-architect](./ko-sd-architect/) | System Design | 基于领域与证据的架构决策：约束、契约、失败恢复、AI 任务边界和集成验收 |
 | [ko-dx-rca](./ko-dx-rca/) | Developer Experience | 根因分析 (5-Why methodology) |
 | [ko-dx-maple-observe](./ko-dx-maple-observe/) | Developer Experience | 使用已运行的 Maple Local 通过 logs、traces、metrics 定位本地服务 bug 与性能问题 |
 | [ko-dx-linux-verify](./ko-dx-linux-verify/) | Developer Experience | 在 macOS 上用本地 smolvm 验证 Linux-only 行为、CI、容器和 Kubernetes 场景 |
@@ -23,6 +24,7 @@ All skills follow统一命名规范，详见 [NAMING.md](./NAMING.md)。
 ```bash
 claude mcp add-skill /path/to/myskills/ko-cq-review
 claude mcp add-skill /path/to/myskills/ko-cq-agent-guidelines
+claude mcp add-skill /path/to/myskills/ko-sd-architect
 claude mcp add-skill /path/to/myskills/ko-dx-rca
 claude mcp add-skill /path/to/myskills/ko-dx-linux-verify
 claude mcp add-skill /path/to/myskills/ko-kb-html
@@ -80,6 +82,13 @@ myskills/
 │   ├── SKILL.md
 │   ├── references/
 │   │   └── maintenance.md
+│   └── evals/
+│       └── evals.json
+├── ko-sd-architect/
+│   ├── SKILL.md
+│   ├── references/
+│   │   ├── maintenance.md
+│   │   └── migrations.md
 │   └── evals/
 │       └── evals.json
 ├── ko-dx-rca/

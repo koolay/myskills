@@ -1,0 +1,53 @@
+{
+  "skill_name": "ko-sd-architect",
+  "evals": [
+    {
+      "id": "trend-driven-rewrite",
+      "prompt": "我们现有 Django + PostgreSQL 单体运行正常，团队 3 人，日均 2000 单，两周内要交付订单导出。我看到多 agent + Rust 微服务很热门，帮我评估架构，不要写代码。",
+      "expected_output": "Keeps analysis read-only, evaluates extending the current stack first, ties new infrastructure to demonstrated requirements, states export acceptance assumptions instead of inventing bottlenecks, and does not launch agents or force a full architecture questionnaire.",
+      "files": []
+    },
+    {
+      "id": "payment-timeout-contract",
+      "prompt": "设计支付接入：下单后调用支付商，超时就重试。支付商支持幂等键和按键查询，但超时不代表扣款失败，回调可能重复或乱序。目标是不重复扣款、最终本地订单与支付商一致。这里只出方案。",
+      "expected_output": "Models unknown payment outcomes, stable idempotency keys per payment intent, callback deduplication and valid state transitions, authoritative reconciliation, and detection/ownership gaps. Plans a cross-boundary timeout-then-success check without pretending it ran or promising exactly-once delivery.",
+      "files": []
+    },
+    {
+      "id": "legacy-commitment-revisit",
+      "prompt": "旧运行时已停止支持且安全漏洞无法修补，但团队以前约定不换栈。现在我明确要求迁移到受支持版本；公共 API 必须兼容，客户端无法同时升级。请给迁移方案。",
+      "expected_output": "Honors the requested migration, revisits the obsolete commitment based on supplied evidence, preserves public API contracts, includes mixed-version composition checks and compatibility sequencing, and distinguishes code rollback from recovery of migrated data. Does not freeze the old stack in the name of loyalty.",
+      "files": []
+    },
+    {
+      "id": "task-completion-is-not-correctness",
+      "prompt": "用户注册、库存预留、支付三个任务都通过单测，覆盖率 100%，所以整体订单系统正确了吧？请审视这个结论，尤其是库存预留成功但支付响应丢失的情况。",
+      "expected_output": "Does not accept task or coverage completion as proof. Defines integrated criteria for payment uncertainty, reservation lifecycle, duplicate effects, and reconciliation, distinguishes safety from eventual progress, and marks unexecuted checks as planned.",
+      "files": []
+    },
+    {
+      "id": "shared-contract-decomposition",
+      "prompt": "拆分一个事件契约升级的实现计划：生产者和消费者都要改共享 schema，旧消费者继续在线。我想让两个 AI 同时各改各的。这里只给计划，不执行。",
+      "expected_output": "Defines the shared contract and mixed-version compatibility before dependent slices, assigns schema ownership and dependency ordering, avoids overlapping writes without coordination, and includes a real producer/consumer composition check. Does not start agents.",
+      "files": []
+    },
+    {
+      "id": "material-unknown-vs-trivial-work",
+      "prompt": "A: 给现有按钮改文字，不涉及契约。B: 设计跨区域客户数据同步；数据是否允许出境尚未确认，先帮我准备可以确定的部分，不要假设法律许可。",
+      "expected_output": "Does not activate architectural process for A. For B asks a focused question about confirmed data residency constraints and pauses location/provider decisions while continuing domain contracts and non-location-specific failure analysis. Does not invent regulatory approval or contact anyone.",
+      "files": []
+    },
+    {
+      "id": "recommendation-only-tooling",
+      "prompt": "内部文档搜索现在只支持关键词。用户需要按服务名找运维手册，现有文档已有服务标签，团队两人，暂时没有语义检索需求。只评估是否加向量数据库，给简短建议，不要实现计划。",
+      "expected_output": "Recommends using existing service tags or filtering when sufficient, ties the choice to the stated retrieval outcome, and supplies a planned retrieval check plus a revisit condition. Omits implementation slices and migration details because neither is needed for feasibility. Produces no code or additional documents.",
+      "files": []
+    },
+    {
+      "id": "document-format-migration",
+      "prompt": "设计协作文档存储升级：旧版本正文是字符串，新版本是结构化块，两种客户端要共存一周。新版本写入的块可能无法无损变回字符串。文档不能丢失。请给迁移和实现拆分方案，不执行。",
+      "expected_output": "Loads references/migrations.md, inventories both client versions and persisted formats, specifies compatibility sequencing and treatment of irreversible new writes, and marks rollback limitations explicitly. Gives proposed rollout/stop conditions, mixed-version and recovery checks with honest statuses, and slices with shared-schema ownership plus an integration owner. Uses document-domain contracts without importing payment-specific rules.",
+      "files": []
+    }
+  ]
+}

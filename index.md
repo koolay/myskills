@@ -31,6 +31,13 @@
 
 - **[SKILL.md](./ko-dx-rca/SKILL.md)** - Structured root cause analysis workflow
 
+### ko-sd-architect/
+
+- **[SKILL.md](./ko-sd-architect/SKILL.md)** - Evidence-based architecture decisions, contract protection, bounded implementation slices, and composition checks
+- **[evals/evals.json](./ko-sd-architect/evals/evals.json)** - Architecture decision pressure scenarios
+- **[references/maintenance.md](./ko-sd-architect/references/maintenance.md)** - Source mapping, independent adaptations, and manual scenario results
+- **[references/migrations.md](./ko-sd-architect/references/migrations.md)** - Conditional compatibility, rollout, and data recovery rules
+
 ### ko-dx-maple-observe/
 
 - **[SKILL.md](./ko-dx-maple-observe/SKILL.md)** - Use existing Maple Local logs, traces, and metrics for local service diagnosis

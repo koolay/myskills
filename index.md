@@ -23,7 +23,7 @@
 ### ko-cq-agent-guidelines/
 
 - **[README.md](./ko-cq-agent-guidelines/README.md)** - Usage guide, examples, inputs, outputs, and boundaries
-- **[SKILL.md](./ko-cq-agent-guidelines/SKILL.md)** - Top-level coding-agent guidelines for judgment, scope, verification, and communication
+- **[SKILL.md](./ko-cq-agent-guidelines/SKILL.md)** - Coding-agent guidelines for judgment, scope, verification, communication, and customer-facing copy
 - **[evals/evals.json](./ko-cq-agent-guidelines/evals/evals.json)** - Pressure scenarios for the coding-agent guidelines
 - **[references/maintenance.md](./ko-cq-agent-guidelines/references/maintenance.md)** - On-demand source mapping, adaptations, and verification guidance
 

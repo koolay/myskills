@@ -20,6 +20,12 @@
       "files": []
     },
     {
+      "id": "customer-world-ui-copy",
+      "prompt": "Revise customer-facing copy in two cases. A: An order page says 'Release failed. Worker restart loop. Retry POST /orders.' The service cannot accept new orders and no charge was made. Say what the customer sees and where the internal cause belongs. B: In a hosting product, the customer's own worker named Atlas restarted three times and its logs are available. Say what that customer sees. Inspect the affected error and recovery copy in both cases.",
+      "expected_output": "A names the failed order submission, known absence of a charge, and a truthful next action without release, worker, or POST details; the internal cause stays in developer diagnostics. B names the customer's Atlas worker, its three restarts, and an action to view logs because those technical facts are the customer's task objects. The agent checks the affected visible states rather than treating all technical words as forbidden.",
+      "files": []
+    },
+    {
       "id": "persistence-and-exit",
       "prompt": "Turn 1: Activate these guidelines and plan a two-step fix. Turn 2: Step 1 is done; explain why step 2 is necessary in detail. Turn 3: Normal mode; answer in a single paragraph. Assume this is the only active mode.",
       "expected_output": "Maintains the active preference across turns, restores step state, gives a full explanation without optional preamble, then acknowledges exit once and respects the requested paragraph. Uses a task tool if available with one active item, without duplicating the full plan.",

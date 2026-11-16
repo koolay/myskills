@@ -8,7 +8,7 @@
 
 | Skill / 使用说明 | 分类 | 适用任务 |
 | --- | --- | --- |
-| [ko-cq-agent-guidelines](./ko-cq-agent-guidelines/README.md) | Code Quality | 会话中的 coding-agent 行为准则：理解任务、最小改动、保护用户工作和如实验证 |
+| [ko-cq-agent-guidelines](./ko-cq-agent-guidelines/README.md) | Code Quality | 会话中的 coding-agent 行为准则：最小改动、如实验证及客户界面文案 |
 | [ko-cq-review](./ko-cq-review/README.md) | Code Quality | diff、PR、分支或验收审查；默认只读，明确要求后可 review-and-fix |
 | [ko-dx-rca](./ko-dx-rca/README.md) | Developer Experience | 5-Why 根因分析、同类路径搜索和局部 / 类级修复建议 |
 | [ko-dx-maple-observe](./ko-dx-maple-observe/README.md) | Developer Experience | 从已运行的 Maple Local 查询日志、链路和指标，诊断本地服务 |
@@ -27,7 +27,7 @@
 ## 如何选择
 
 - **代码行为异常：** 用 `ko-dx-rca` 追踪根因；需要本地遥测时配合 `ko-dx-maple-observe`，Linux 特有行为用 `ko-dx-linux-verify`。
-- **检查代码变更：** 用 `ko-cq-review`；持续约束整个会话的改动与沟通方式用 `ko-cq-agent-guidelines`。
+- **检查代码变更：** 用 `ko-cq-review`；持续约束整个会话的改动、沟通方式及客户界面文案用 `ko-cq-agent-guidelines`。
 - **架构问题：** 记录现状用 `ko-kb-architecture-blueprint`；决定新方案用 `ko-sd-architect`；初始化或改善工程基础用 `ko-sd-project-harness`。
 - **文档交付：** 单份离线 HTML 用 `ko-kb-html`；有多页面导航与发布需求的文档站用 `ko-kb-site-docs`。
 - **Agent 持续协作：** 用 `ko-ux-agent-design` 设计记忆、权限、计划连续性和错误恢复。

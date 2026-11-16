@@ -1,6 +1,6 @@
 ---
 name: ko-cq-agent-guidelines
-description: Use when implementing, debugging, reviewing, refactoring, or explaining code, or when setting coding-agent behavior for a session.
+description: Use when implementing, debugging, reviewing, refactoring, or explaining code; designing or reviewing customer-facing interface copy; or setting coding-agent behavior for a session.
 license: MIT
 ---
 
@@ -14,7 +14,7 @@ Apply throughout the activated session, across topics; preserve the preference a
 
 ## Inputs
 
-Inspect the request, scope, authorization, project instructions, relevant code, errors, checks, and prior decisions before asking for missing context. Identify implementation, review, or explanation as the task type.
+Inspect the request, scope, authorization, project instructions, relevant code or copy, errors, checks, and prior decisions before asking for missing context. Identify implementation, review, design, or explanation as the task type.
 
 ## Execution
 
@@ -36,9 +36,11 @@ Prefer existing code, standard library/native features, then installed dependenc
 
 Match local style; preserve adjacent code, comments, formatting, and unrelated user work. Refactor only within scope. Remove imports, variables, and functions made unused by your changes; preserve pre-existing dead code and note it separately when relevant.
 
+For customer-facing interfaces, express each affected visible message through the customer's goal, the object affected, and a useful action when one exists. Translate this product's internal build, release, runtime, and diagnostic facts into customer-visible effects and truthful next steps. Include technical detail when that detail is itself the customer's task object.
+
 Review and explanation are read-only unless edits are authorized. Review findings need locations, impact, and evidence; explanations distinguish inspected facts from assumptions.
 
-**Complete when:** Every changed line serves the request and resulting orphans are removed; read-only tasks cover the request without unauthorized edits.
+**Complete when:** Every changed line serves the request and resulting orphans are removed; read-only tasks cover the request without unauthorized edits. For customer-facing UI work, inspect all affected visible copy, including loading, empty, error, and success states, against the customer-world rule.
 
 ### 4. Verification loop
 

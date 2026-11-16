@@ -6,6 +6,7 @@ Read this file only when editing or evaluating the skill. Runtime decisions and 
 
 - The user-supplied **Karpathy Guidelines**, informed by [Karpathy's observations](https://x.com/karpathy/status/2015883857489522876): thinking before coding, simplicity, surgical changes, and goal-driven verification. The post is background, not the exact supplied skill text.
 - [i-have-adhd/SKILL.md](https://github.com/ayghri/i-have-adhd/blob/main/skills/i-have-adhd/SKILL.md): persistence, ten output rules, exceptions, and the pre-send check. This main-branch link is mutable; record the revision when refreshing the source.
+- User-supplied customer-interface rule: visible copy describes the customer's goal, objects, effects, and actions; this product's internal production and diagnostic details are translated into customer-visible effects unless they are the customer's task objects.
 
 ## Deliberate Adaptations
 
@@ -20,6 +21,7 @@ Keep each behavior and its decision boundary, not necessarily its original wordi
 | Consequential assumptions, competing interpretations, tradeoffs, simpler alternatives, pushback | Think before coding; consequential-ambiguity halt |
 | Minimum requested solution, no speculative abstraction/configuration, credible failure handling, simplification check | Simplicity first |
 | Local style, no adjacent cleanup, remove only newly orphaned code, preserve existing dead code | Surgical changes |
+| Customer-facing copy uses customer terms; internal failures show truthful effects and next steps, while customer task objects retain needed technical detail | Surgical changes |
 | Every edit traces to the request; reviews/explanations are read-only unless authorized | Surgical changes completion criterion |
 | Observable goals; plan steps paired with checks; invalid/valid input, reproduction, refactor evidence; loop until verified | Execution; verification loop |
 | Persistence, exit, handoff, user/host precedence | Scope and Persistence |
